@@ -13,6 +13,8 @@ namespace Hotel.Infrastructure.Data
         public DbSet<Habitacion> Habitaciones => Set<Habitacion>();
         public DbSet<DetalleReserva> DetalleReservas => Set<DetalleReserva>();
 
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -20,13 +22,9 @@ namespace Hotel.Infrastructure.Data
             // ApplicationUser
             builder.Entity<ApplicationUser>(entity =>
             {
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.NombreCompleto)
                       .IsRequired()
-                      .HasMaxLength(50);
-                      
-                entity.Property(e => e.Apellido)
-                      .IsRequired()
-                      .HasMaxLength(50);
+                      .HasMaxLength(75);
 
                 entity.Property(e => e.FechaRegistro)
                       .IsRequired()

@@ -269,7 +269,14 @@ C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\De
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\staticwebassets.development.json
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\swae.build.ex.cache
-C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\Hotel.API.csproj.Up2Date
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\Hotel.API.genruntimeconfig.cache
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\ref\Hotel.API.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\Hotel.API.sourcelink.json
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

@@ -30,11 +30,6 @@ namespace Hotel.Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Apellido")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
@@ -60,10 +55,10 @@ namespace Hotel.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("NombreCompleto")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(75)
+                        .HasColumnType("character varying(75)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -167,6 +162,32 @@ namespace Hotel.Infrastructure.Migrations
                     b.HasIndex("TipoHabitacionId");
 
                     b.ToTable("Habitaciones");
+                });
+
+            modelBuilder.Entity("Hotel.Domain.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Expiracion")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("Hotel.Domain.Entities.Reserva", b =>
@@ -396,6 +417,17 @@ namespace Hotel.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("TipoHabitacion");
+                });
+
+            modelBuilder.Entity("Hotel.Domain.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("Hotel.Domain.Entities.ApplicationUser", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Hotel.Domain.Entities.Reserva", b =>

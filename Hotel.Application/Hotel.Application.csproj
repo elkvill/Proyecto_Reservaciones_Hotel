@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.18.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,11 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Service\" />
-    <Folder Include="Response\" />
+    <Folder Include="DTOs\Habitaciones\" />
+    <Folder Include="DTOs\Detalle_Reserva\" />
+    <Folder Include="DTOs\Tipo_habitacion\" />
+    <Folder Include="DTOs\Reservas\" />
   </ItemGroup>
 
 </Project>

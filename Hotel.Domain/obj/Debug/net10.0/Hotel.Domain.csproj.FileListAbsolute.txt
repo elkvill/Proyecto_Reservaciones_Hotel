@@ -21,3 +21,4 @@ c:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Domain\obj
 c:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Domain\obj\Debug\net10.0\refint\Hotel.Domain.dll
 c:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Domain\obj\Debug\net10.0\Hotel.Domain.pdb
 c:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Domain\obj\Debug\net10.0\ref\Hotel.Domain.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Domain\obj\Debug\net10.0\Hotel.Domain.sourcelink.json

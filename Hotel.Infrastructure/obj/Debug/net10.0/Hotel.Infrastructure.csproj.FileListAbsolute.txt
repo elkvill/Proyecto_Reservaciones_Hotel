@@ -36,3 +36,4 @@ C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Infrastruc
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Infrastructure\obj\Debug\net10.0\Hotel.In.3ECE7436.Up2Date
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Infrastructure\obj\Debug\net10.0\Hotel.Infrastructure.genruntimeconfig.cache
 C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Infrastructure\obj\Debug\net10.0\ref\Hotel.Infrastructure.dll
+C:\clases\Desarrollo de aplicaciones IV\MiProyectoHotel\Backend\Hotel.Infrastructure\obj\Debug\net10.0\Hotel.Infrastructure.sourcelink.json
