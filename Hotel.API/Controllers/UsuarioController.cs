@@ -26,7 +26,14 @@ namespace Hotel.API.Controllers
             return Ok(new RespuestaPaginada<UsuarioDto>(registros, total, pagina, tamanio));
         }
 
-
+        [HttpGet("{id}", Name = "ObtenerUsuario")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<UsuarioDto>> ObtenerUsuario(string id)
+        {
+            var registro = await _service.ObtenerPorIdAsync(id);
+            if (registro == null) return NotFound("Usuario no encontrado.");
+            return Ok(registro);
+        }
         //[HttpGet("{id}", Name = "ObtenerUsuario")]
         //[Authorize(Roles = "Admin")]
         //public async Task<ActionResult<IEnumerable<ReservaDto>>> ObtenerUsuario(string id)

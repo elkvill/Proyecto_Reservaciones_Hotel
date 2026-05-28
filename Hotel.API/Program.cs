@@ -82,17 +82,17 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 // registrar repositorios con sus interfaces
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-//builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
-//builder.Services.AddScoped<ITipoHabitacionRepository, TipoHabitacionRepository>();
-//builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
+builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
+builder.Services.AddScoped<ITipoHabitacionRepository, TipoHabitacionRepository>();
+builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
 //builder.Services.AddScoped<IDetalleReservaRepository, DetalleReservaRepository>();
 
 // registrar servicios con sus interfaces
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-//builder.Services.AddScoped<IReservaService, ReservaService>();
-//builder.Services.AddScoped<ITipoHabitacionService, TipoHabitacionService>();
-//builder.Services.AddScoped<IHabitacionService, HabitacionService>();
+builder.Services.AddScoped<IReservaService, ReservaService>();
+builder.Services.AddScoped<ITipoHabitacionService, TipoHabitacionService>();
+builder.Services.AddScoped<IHabitacionService, HabitacionService>();
 //builder.Services.AddScoped<IDetalleReservaService, DetalleReservaService>();
 
 // Configurar la autenticación

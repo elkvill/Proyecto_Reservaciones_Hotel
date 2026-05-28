@@ -20,7 +20,7 @@ namespace Hotel.Domain.Entities
         public DateOnly FechaFin { get; set; }
         public decimal Total { get; set; }
         public string Estado { get; set; } = "Pendiente";
-        public DateTime FechaCreacion { get; private set; } = DateTime.Now;
+        public DateTime FechaCreacion { get; private set; } = DateTime.UtcNow;
 
         // Propiedades de navegación
         public virtual ICollection<DetalleReserva> DetalleReservas { get; set; } = new List<DetalleReserva>();
