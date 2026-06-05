@@ -77,15 +77,15 @@ namespace Hotel.API.Controllers
             return Ok(actualizado);
         }
 
-        [HttpDelete("{id:int}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Eliminar(int id)
-        {
-            var registroExistente = await _service.ObtenerPorIdAsync(id);
-            if (registroExistente == null) return NotFound();
+        //[HttpDelete("{id:int}")]
+        //[Authorize(Roles = "Admin")]
+        //public async Task<ActionResult> Eliminar(int id)
+        //{
+        //    var registroExistente = await _service.ObtenerPorIdAsync(id);
+        //    if (registroExistente == null) return NotFound();
 
-            await _service.EliminarAsync(id);
-            return NoContent();
-        }
+        //    await _service.EliminarAsync(id);
+        //    return NoContent();
+        //}
     }
 }

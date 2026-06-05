@@ -1,6 +1,4 @@
-﻿
-
-namespace Hotel.Application.DTOs.Reservas
+﻿namespace Hotel.Application.DTOs.Reservas
 {
     public class ReservaDto
     {
@@ -12,5 +10,7 @@ namespace Hotel.Application.DTOs.Reservas
         public decimal Total { get; set; }
         public string Estado { get; set; } = null!;
         public DateTime FechaCreacion { get; set; }
+
+        public List<DetalleReservaDto> DetalleReservas { get; set; } = new List<DetalleReservaDto>();
     }
 }

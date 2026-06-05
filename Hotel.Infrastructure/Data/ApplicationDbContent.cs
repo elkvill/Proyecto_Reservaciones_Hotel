@@ -123,11 +123,13 @@ namespace Hotel.Infrastructure.Data
                 // Validar que una misma habitación no se pueda registrar dos veces en la misma reserva
                 entity.HasIndex(e => new { e.ReservaId, e.HabitacionId }).IsUnique();
 
+                //Relacion con reserva
                 entity.HasOne(e => e.Reserva)
                     .WithMany(r => r.DetalleReservas)
                     .HasForeignKey(e => e.ReservaId)
                     .OnDelete(DeleteBehavior.Cascade);
 
+                //Relacion con habitacion
                 entity.HasOne(e => e.Habitacion)
                     .WithMany(h => h.DetalleReservas)
                     .HasForeignKey(e => e.HabitacionId)

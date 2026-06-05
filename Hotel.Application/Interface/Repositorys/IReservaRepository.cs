@@ -9,8 +9,11 @@ namespace Hotel.Application.Interface.Repositorys
         Task<IEnumerable<Reserva>> ObtenerTodasAsync();
         Task<IEnumerable<Reserva>> ObtenerPorUsuarioAsync(string usuarioId);
 
+        Task<bool> TieneReservaOcupadaAsync(int habitacionId, DateOnly fechaInicio, DateOnly fechaFin);
+
+
         Task CrearAsync(Reserva reserva);
         Task ActualizarAsync(Reserva reserva);
-        Task EliminarAsync(int id);
+        //Task EliminarAsync(int id);
     }
 }

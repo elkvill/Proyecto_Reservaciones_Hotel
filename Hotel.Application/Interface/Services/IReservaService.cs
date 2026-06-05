@@ -11,6 +11,6 @@ namespace Hotel.Application.Interface.Services
         Task<IEnumerable<ReservaDto>> ObtenerPorUsuarioAsync(string usuarioId);
         Task<ReservaDto> CrearAsync(ReservaCrearDto dto);
         Task<ReservaDto> ActualizarAsync(int id, ReservaActualizarDto dto);
-        Task EliminarAsync(int id);
+        //Task EliminarAsync(int id);
     }
 }

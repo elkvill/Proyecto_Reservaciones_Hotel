@@ -1,5 +1,4 @@
 using AutoMapper;
-using Hotel.Application.DTOs.Detalle_Reserva;
 using Hotel.Application.DTOs.Habitaciones;
 using Hotel.Application.DTOs.Reservas;
 using Hotel.Application.DTOs.Tipo_habitacion;
@@ -46,7 +45,13 @@ namespace Hotel.Application.Mappings
 
             #region Mapeo de Reserva
             CreateMap<Reserva, ReservaDto>();
-            CreateMap<ReservaCrearDto, Reserva>();
+            CreateMap<ReservaCrearDto, Reserva>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Usuario, opt => opt.Ignore())
+                .ForMember(dest => dest.Estado, opt => opt.Ignore())
+                .ForMember(dest => dest.FechaCreacion, opt => opt.Ignore())
+                .ForMember(dest => dest.DetalleReservas, opt => opt.Ignore());
+
             CreateMap<ReservaActualizarDto, Reserva>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.FechaCreacion, opt => opt.Ignore());
@@ -56,12 +61,20 @@ namespace Hotel.Application.Mappings
             #region Mapeo de DetalleReserva
             CreateMap<DetalleReserva, DetalleReservaDto>()
                .ForMember(dest => dest.HabitacionNumero, opt => opt.MapFrom(src => src.Habitacion.Numero));
-            CreateMap<DetalleReservaCrearDto, DetalleReserva>();
+            CreateMap<DetalleReservaCrearDto, DetalleReserva>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.ReservaId, opt => opt.Ignore())
+                .ForMember(dest => dest.Reserva, opt => opt.Ignore())
+                .ForMember(dest => dest.Habitacion, opt => opt.Ignore())
+                .ForMember(dest => dest.CantidadDeNoches, opt => opt.Ignore())
+                .ForMember(dest => dest.Subtotal, opt => opt.Ignore());
+
             CreateMap<DetalleReservaActualizarDto, DetalleReserva>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.ReservaId, opt => opt.Ignore());
 
             #endregion
+        
         }
 
     }

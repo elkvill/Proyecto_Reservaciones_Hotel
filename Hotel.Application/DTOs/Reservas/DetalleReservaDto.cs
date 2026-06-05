@@ -1,5 +1,4 @@
-﻿
-namespace Hotel.Application.DTOs.Detalle_Reserva
+﻿namespace Hotel.Application.DTOs.Reservas
 {
     public class DetalleReservaDto
     {

@@ -1,5 +1,4 @@
-﻿
-using Hotel.Application.DTOs.Detalle_Reserva;
+﻿using Hotel.Application.DTOs.Reservas;
 
 namespace Hotel.Application.Interface.Services
 {
@@ -9,6 +8,6 @@ namespace Hotel.Application.Interface.Services
         Task<IEnumerable<DetalleReservaDto>> ObtenerPorReservaIdAsync(int reservaId);
         Task<DetalleReservaDto> CrearAsync(DetalleReservaCrearDto dto);
         Task<DetalleReservaDto> ActualizarAsync(int id, DetalleReservaActualizarDto dto);
-        Task EliminarAsync(int id);
+        //Task EliminarAsync(int id);
     }
 }

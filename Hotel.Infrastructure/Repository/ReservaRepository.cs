@@ -19,12 +19,15 @@ namespace Hotel.Infrastructure.Repository
         {
             return await _context.Reservas
                 .Include(r => r.DetalleReservas)
+                    .ThenInclude(d => d.Habitacion)
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
 
         public async Task<IEnumerable<Reserva>> ObtenerTodasAsync()
         {
             return await _context.Reservas
+                .Include(r => r.DetalleReservas)
+                    .ThenInclude(d => d.Habitacion)
                 .ToListAsync();
         }
 
@@ -32,8 +35,20 @@ namespace Hotel.Infrastructure.Repository
         {
             return await _context.Reservas
                 .Include(r => r.DetalleReservas)
+                    .ThenInclude(d => d.Habitacion)
                 .Where(r => r.UsuarioId == usuarioId)
                 .ToListAsync();
+        }
+
+        //Esto es para la validacion de que no haya reservas con las mismas fechas y habitacion
+        public async Task<bool> TieneReservaOcupadaAsync(int habitacionId, DateOnly fechaInicio, DateOnly fechaFin)
+        {
+            return await _context.DetalleReservas
+                .AnyAsync(d => d.HabitacionId == habitacionId
+                               && d.Reserva.Estado != "Cancelada"
+                               && d.Reserva.Estado != "0"
+                               && d.Reserva.FechaInicio < fechaFin
+                               && d.Reserva.FechaFin > fechaInicio);
         }
         public async Task CrearAsync(Reserva reserva)
         {
@@ -47,9 +62,9 @@ namespace Hotel.Infrastructure.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task EliminarAsync(int id)
-        {
-            await _context.Reservas.Where(r => r.Id == id).ExecuteDeleteAsync();
-        }
+        //public async Task EliminarAsync(int id)
+        //{
+        //    await _context.Reservas.Where(r => r.Id == id).ExecuteDeleteAsync();
+        //}
     }
 }

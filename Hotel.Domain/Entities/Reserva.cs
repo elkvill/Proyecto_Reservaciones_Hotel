@@ -3,7 +3,7 @@ namespace Hotel.Domain.Entities
     public class Reserva
     {
         public int Id { get; set; }
-        public string UsuarioId { get; set; } = null!;//esto lo agregue hace poco
+        public string UsuarioId { get; set; } = null!;
 
         public ApplicationUser? Usuario { get; set; }
 

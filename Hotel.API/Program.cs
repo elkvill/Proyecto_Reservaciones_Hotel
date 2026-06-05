@@ -85,6 +85,7 @@ builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<ITipoHabitacionRepository, TipoHabitacionRepository>();
 builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
+builder.Services.AddScoped<IdbSeederRepository, DbSeederRepository>(); // <-- Agregado
 //builder.Services.AddScoped<IDetalleReservaRepository, DetalleReservaRepository>();
 
 // registrar servicios con sus interfaces
@@ -167,30 +168,30 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "Ecommerce API",
         Description = """
-        #### **Infraestructura escalable para la gestión de comercio digital.**
-
-        Esta API proporciona un conjunto robusto de herramientas para administrar operaciones comerciales complejas, garantizando seguridad, velocidad y una experiencia de usuario optimizada.
-
+        #### **Infraestructura robusta para la gestión de reservas y hospedaje.**
+        
+        Esta API proporciona un conjunto completo de herramientas para administrar las operaciones del hotel, garantizando la seguridad en el proceso de reserva, control de disponibilidad de habitaciones y una experiencia de usuario optimizada.
+        
         ---
-
+        
         #### Módulos del Sistema
-        * **Catálogo:** Gestión dinámica de productos con control de stock en tiempo real.
-        * **Ventas:** Administración integral de pedidos y seguimiento del ciclo de vida de compra.
-        * **Finanzas:** Procesamiento de pagos y auditoría de transacciones.
-        * **Soporte IA:** Chatbot de asistencia para búsqueda inteligente y recomendaciones personalizadas.
-
+        * **Habitaciones:** Gestión del catálogo de habitaciones y estados en tiempo real (Disponible, Ocupada, Mantenimiento).
+        * **Reservas:** Administración integral de reservas de huéspedes, asignación de habitaciones y cálculo automático de noches y costos.
+        * **Usuarios y Roles:** Control de acceso basado en roles para Clientes, Recepcionistas y Administradores.
+        * **Autenticación:** Seguridad integrada con soporte para tokens **JWT** y Refresh Tokens.
+        
         #### Características Técnicas
         * **Seguridad:** Autenticación de grado industrial mediante **JWT**.
-        * **Eficiencia:** Consumo de recursos optimizado con soporte para **paginación y filtrado**.
-        * **Integración:** Salidas JSON estandarizadas para una fácil implementación en entornos Web y Mobile.
-
+        * **Integración:** Salidas JSON estandarizadas listas para su consumo en aplicaciones Frontend (Web y Mobile).
+        
         ---
+        
 
         """,
 
         Contact = new OpenApiContact
         {
-            Name = "Mario Garcia (Soporte Técnico)",
+            Name = "Kevin Villarreal (Soporte Técnico)",
             Email = "mrgmairena@gmail.com",
             Url = new Uri("https://github.com/MGarcia7783/E-commerce")
         },
@@ -285,6 +286,24 @@ app.UseAuthorization();
 
 //mapear controladores
 app.MapControllers();
+
+// Sembrar datos iniciales si no hay usuarios
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var seeder = services.GetRequiredService<IdbSeederRepository>();
+        await seeder.SeederAsync();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocurrió un error al ejecutar el seeder de base de datos.");
+    }
+}
+
+
 
 if (app.Environment.IsDevelopment())
 {
