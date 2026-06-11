@@ -1,102 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{853856A4-47F2-2037-078A-910F158813FC}|Hotel.API\\Hotel.API.csproj|c:\\clases\\desarrollo de aplicaciones iv\\miproyectohotel\\backend\\hotel.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{853856A4-47F2-2037-078A-910F158813FC}|Hotel.API\\Hotel.API.csproj|solutionrelative:hotel.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC9B5C8-EB6D-3D4F-FB1D-0F6CAE941FA4}|Hotel.Application\\Hotel.Application.csproj|c:\\clases\\desarrollo de aplicaciones iv\\miproyectohotel\\backend\\hotel.application\\service\\reservaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC9B5C8-EB6D-3D4F-FB1D-0F6CAE941FA4}|Hotel.Application\\Hotel.Application.csproj|solutionrelative:hotel.application\\service\\reservaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18E1B9F8-A1A3-479D-D769-05ABF5E1F127}|Hotel.Infrastructure\\Hotel.Infrastructure.csproj|c:\\clases\\desarrollo de aplicaciones iv\\miproyectohotel\\backend\\hotel.infrastructure\\repository\\dbseederrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18E1B9F8-A1A3-479D-D769-05ABF5E1F127}|Hotel.Infrastructure\\Hotel.Infrastructure.csproj|solutionrelative:hotel.infrastructure\\repository\\dbseederrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC9B5C8-EB6D-3D4F-FB1D-0F6CAE941FA4}|Hotel.Application\\Hotel.Application.csproj|c:\\clases\\desarrollo de aplicaciones iv\\miproyectohotel\\backend\\hotel.application\\interface\\repositorys\\idbseederrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC9B5C8-EB6D-3D4F-FB1D-0F6CAE941FA4}|Hotel.Application\\Hotel.Application.csproj|solutionrelative:hotel.application\\interface\\repositorys\\idbseederrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18E1B9F8-A1A3-479D-D769-05ABF5E1F127}|Hotel.Infrastructure\\Hotel.Infrastructure.csproj|c:\\clases\\desarrollo de aplicaciones iv\\miproyectohotel\\backend\\hotel.infrastructure\\data\\applicationdbcontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18E1B9F8-A1A3-479D-D769-05ABF5E1F127}|Hotel.Infrastructure\\Hotel.Infrastructure.csproj|solutionrelative:hotel.infrastructure\\data\\applicationdbcontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
-        {
-          "DockedWidth": 705,
-          "SelectedChildIndex": 4,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReservaService.cs",
-              "DocumentMoniker": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Application\\Service\\ReservaService.cs",
-              "RelativeDocumentMoniker": "Hotel.Application\\Service\\ReservaService.cs",
-              "ToolTip": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Application\\Service\\ReservaService.cs*",
-              "RelativeToolTip": "Hotel.Application\\Service\\ReservaService.cs*",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T17:04:29.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DbSeederRepository.cs",
-              "DocumentMoniker": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Infrastructure\\Repository\\DbSeederRepository.cs",
-              "RelativeDocumentMoniker": "Hotel.Infrastructure\\Repository\\DbSeederRepository.cs",
-              "ToolTip": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Infrastructure\\Repository\\DbSeederRepository.cs",
-              "RelativeToolTip": "Hotel.Infrastructure\\Repository\\DbSeederRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T16:32:45.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IdbSeederRepository.cs",
-              "DocumentMoniker": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Application\\Interface\\Repositorys\\IdbSeederRepository.cs",
-              "RelativeDocumentMoniker": "Hotel.Application\\Interface\\Repositorys\\IdbSeederRepository.cs",
-              "ToolTip": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Application\\Interface\\Repositorys\\IdbSeederRepository.cs",
-              "RelativeToolTip": "Hotel.Application\\Interface\\Repositorys\\IdbSeederRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T16:31:12.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ApplicationDbContent.cs",
-              "DocumentMoniker": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Infrastructure\\Data\\ApplicationDbContent.cs",
-              "RelativeDocumentMoniker": "Hotel.Infrastructure\\Data\\ApplicationDbContent.cs",
-              "ToolTip": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.Infrastructure\\Data\\ApplicationDbContent.cs",
-              "RelativeToolTip": "Hotel.Infrastructure\\Data\\ApplicationDbContent.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAwwD8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T16:27:43.532Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.API\\Program.cs",
-              "RelativeDocumentMoniker": "Hotel.API\\Program.cs",
-              "ToolTip": "C:\\clases\\Desarrollo de aplicaciones IV\\MiProyectoHotel\\Backend\\Hotel.API\\Program.cs",
-              "RelativeToolTip": "Hotel.API\\Program.cs",
-              "ViewState": "AgIAABgBAAAAAAAAAAAUwCkBAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T16:20:14.407Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
         {
           "DockedWidth": 705,
           "SelectedChildIndex": -1,
