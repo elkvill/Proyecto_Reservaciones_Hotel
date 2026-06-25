@@ -1,4 +1,4 @@
-﻿using Hotel.Application.DTOs.Usuario;
+using Hotel.Application.DTOs.Usuario;
 using Hotel.Application.Interface.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +43,7 @@ namespace Hotel.API.Controllers
         public async Task<ActionResult<UsuarioDto>> Refresh([FromBody] RefreshTokenDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Refreshtoken))
-                return BadRequest("Refresh tokeb requerido");
+                return BadRequest("Refresh token requerido");
 
             var respuesta = await _service.RefreshTokenAsync(dto.Refreshtoken);
             return Ok(respuesta);

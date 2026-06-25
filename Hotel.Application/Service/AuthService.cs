@@ -182,8 +182,7 @@ namespace Hotel.Application.Service
             {
                 Usuario = await MapearUsuarioDtoAsync(usuario),
                 AccessToken = nuevoJwt,
-                RefreshToken = refreshToken, 
-                /*RefreshToken = nuevoRefresh,*/   
+                RefreshToken = nuevoRefresh,   
                 ExpiraEn = expiracion
             };
         }

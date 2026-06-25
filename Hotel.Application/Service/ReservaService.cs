@@ -1,4 +1,4 @@
-﻿
+
 using AutoMapper;
 using Hotel.Application.DTOs.Reservas;
 using Hotel.Application.Interface.Repositorys;
@@ -50,6 +50,10 @@ namespace Hotel.Application.Service
             if (dto.DetalleReservas == null || !dto.DetalleReservas.Any())
                 throw new ArgumentException("La reserva debe contener al menos una habitación.", nameof(dto.DetalleReservas));
 
+            if (dto.FechaInicio < DateOnly.FromDateTime(DateTime.Today))
+                throw new ArgumentException("La fecha de inicio no puede ser en el pasado.");
+
+
             if (dto.FechaInicio >= dto.FechaFin)
                 throw new ArgumentException("La fecha de fin debe ser posterior a la fecha de inicio.");
 
@@ -78,11 +82,14 @@ namespace Hotel.Application.Service
                 //if (habitacion.Estado != "Disponible")
                 //    throw new InvalidOperationException($"La habitación número {habitacion.Numero} no está disponible (Estado actual: {habitacion.Estado}).");
 
-                if (habitacion.Estado != "Disponible")
+                //if (habitacion.Estado != "Disponible")
                     
-                    if (habitacion.Estado != "Disponible" && habitacion.Estado != "Ocupada")
-                        throw new InvalidOperationException($"La habitación número {habitacion.Numero} " +
-                            $"no está disponible (Estado actual: {habitacion.Estado}).");
+                //    if (habitacion.Estado != "Disponible" && habitacion.Estado != "Ocupada")
+                //        throw new InvalidOperationException($"La habitación número {habitacion.Numero} " +
+                //            $"no está disponible (Estado actual: {habitacion.Estado}).");
+                
+                if (habitacion.Estado != "Disponible")
+                    throw new InvalidOperationException($"La habitación {habitacion.Numero} no está disponible.");
 
                 // Validar que no haya reservas repetidas en la misma fechas
                 if (await _repository.TieneReservaOcupadaAsync(habitacion.Id, dto.FechaInicio, dto.FechaFin))
@@ -122,16 +129,55 @@ namespace Hotel.Application.Service
             var registro = await _repository.ObtenerPorIdAsync(id);
             if (registro == null) throw new KeyNotFoundException("Reserva no encontrada.");
 
+            // Validar que no se modifique una reserva ya cancelada
+            if (registro.Estado == "Cancelada")
+                throw new InvalidOperationException("No se puede modificar una reserva que ya fue cancelada.");
+
+            // Validar que el nuevo estado sea uno de los permitidos
+            var estadosValidos = new[] { "Pendiente", "Confirmada", "Cancelada" };
+            if (!estadosValidos.Contains(dto.Estado))
+                throw new ArgumentException($"Estado inválido: '{dto.Estado}'. Los estados permitidos son: Pendiente, Confirmada, Cancelada.");
+
+            // Si la reserva cambia a Cancelada, liberar las habitaciones asociadas
+            if (dto.Estado == "Cancelada" && registro.Estado != "Cancelada")
+            {
+                foreach (var detalle in registro.DetalleReservas)
+                {
+                    if (detalle.Habitacion != null)
+                    {
+                        detalle.Habitacion.Estado = "Disponible";
+                        await _habitacionRepository.ActualizarAsync(detalle.Habitacion);
+                    }
+                }
+            }
+
             _mapper.Map(dto, registro);
             await _repository.ActualizarAsync(registro);
             return _mapper.Map<ReservaDto>(registro);
         }
 
-        //public async Task EliminarAsync(int id)
-        //{
-        //    var registro = await _repository.ObtenerPorIdAsync(id);
-        //    if (registro == null) throw new KeyNotFoundException("Reserva no encontrada.");
-        //    await _repository.EliminarAsync(id);
-        //}
+        public async Task EliminarAsync(int id)
+        {
+            var registro = await _repository.ObtenerPorIdAsync(id);
+            if (registro == null) throw new KeyNotFoundException("Reserva no encontrada.");
+
+            // Si ya está cancelada, no es necesario hacer nada más
+            if (registro.Estado != "Cancelada")
+            {
+                registro.Estado = "Cancelada";
+
+                // Liberar las habitaciones asociadas
+                foreach (var detalle in registro.DetalleReservas)
+                {
+                    if (detalle.Habitacion != null)
+                    {
+                        detalle.Habitacion.Estado = "Disponible";
+                        await _habitacionRepository.ActualizarAsync(detalle.Habitacion);
+                    }
+                }
+
+                await _repository.ActualizarAsync(registro);
+            }
+        }
     }
 }

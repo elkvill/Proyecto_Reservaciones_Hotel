@@ -19,7 +19,7 @@ namespace Hotel.Infrastructure.Repository
 
         public async Task SeederAsync()
         {
-            // 1. Crear roles si no existen
+            // Crear roles si no existen
             string[] roleNames = { "Admin", "Recepcionista", "Cliente" };
             foreach (var roleName in roleNames)
             {
@@ -30,7 +30,7 @@ namespace Hotel.Infrastructure.Repository
                 }
             }
 
-            // 2. Crear administrador por defecto si no hay usuarios en la base de datos
+            // Crear administrador por defecto si no hay usuarios en la base de datos
             if (!await _userManager.Users.AnyAsync())
             {
                 var adminUser = new ApplicationUser

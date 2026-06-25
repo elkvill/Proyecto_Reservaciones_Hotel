@@ -55,7 +55,7 @@ var connectionString =
     $"Database={database};" +
     $"Username={user};" +
     $"Password={password};" +
-    $"SSL Mode=Prefer;" + //Prefer es para hambiente local y Require para producción, pero en este caso
+    $"SSL Mode=Require;" + //Prefer es para hambiente local y Require para producción, pero en este caso
                          //se usará Prefer para ambos ambientes para evitar problemas de conexión en desarrollo
                          //$"SSL Mode=Require;" +
     $"Trust Server Certificate=true;";
@@ -85,7 +85,7 @@ builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<ITipoHabitacionRepository, TipoHabitacionRepository>();
 builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
-builder.Services.AddScoped<IdbSeederRepository, DbSeederRepository>(); // <-- Agregado
+builder.Services.AddScoped<IdbSeederRepository, DbSeederRepository>(); 
 //builder.Services.AddScoped<IDetalleReservaRepository, DetalleReservaRepository>();
 
 // registrar servicios con sus interfaces
@@ -166,7 +166,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Ecommerce API",
+        Title = "Hotel API",
         Description = """
         #### **Infraestructura robusta para la gestión de reservas y hospedaje.**
         
@@ -267,7 +267,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce API v1");
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Hotel API v1");
 });
 
 app.MapGet("/", context =>
@@ -287,18 +287,42 @@ app.UseAuthorization();
 //mapear controladores
 app.MapControllers();
 
-// Sembrar datos iniciales si no hay usuarios
+// datos iniciales si no hay usuarios
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    try
+//    {
+//        var seeder = services.GetRequiredService<IdbSeederRepository>();
+//        await seeder.SeederAsync();
+//    }
+//    catch (Exception ex)
+//    {
+//        var logger = services.GetRequiredService<ILogger<Program>>();
+//        logger.LogError(ex, "Ocurrió un error al ejecutar el seeder de base de datos.");
+//    }
+//}
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
     try
     {
-        var seeder = services.GetRequiredService<IdbSeederRepository>();
-        await seeder.SeederAsync();
+        var context = services.GetRequiredService<ApplicationDbContent>();
+        if (await context.Database.CanConnectAsync())
+        {
+            var seeder = services.GetRequiredService<IdbSeederRepository>();
+            await seeder.SeederAsync();
+            logger.LogInformation("El seeder se ejecutó correctamente.");
+        }
+        else
+        {
+            logger.LogWarning("No se pudo conectar a la base de datos. Asegúrese de que esté creada y el servicio activo. El seeder no se ejecutará.");
+        }
     }
     catch (Exception ex)
     {
-        var logger = services.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "Ocurrió un error al ejecutar el seeder de base de datos.");
     }
 }

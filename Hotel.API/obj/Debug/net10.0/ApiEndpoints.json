@@ -301,6 +301,22 @@
   },
   {
     "ContainingType": "Hotel.API.Controllers.ReservaController",
+    "Method": "Eliminar",
+    "RelativePath": "api/Reserva/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.API.Controllers.ReservaController",
     "Method": "MisReservas",
     "RelativePath": "api/Reserva/mis-reservas",
     "HttpMethod": "GET",
