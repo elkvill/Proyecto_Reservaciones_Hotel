@@ -8,8 +8,8 @@ WORKDIR /src
 COPY . .
 
 # Restaurar dependencias
-# RUN dotnet restore "Backend.slnx" por si no funciona
-RUN dotnet restore "Backend.Solution.slnx"
+RUN dotnet restore "Backend.slnx"
+# RUN dotnet restore "Backend.Solution.slnx"
 
 # Publicar la API
 WORKDIR "/src/Hotel.API"
